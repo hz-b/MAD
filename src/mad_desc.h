@@ -63,7 +63,7 @@ void  mad_desc_del    (const desc_t *d);
 
 // -- introspection
 int   mad_desc_getnv  (const desc_t *d, ord_t *mo_, int *np_, ord_t *po_); // return nv
-ord_t mad_desc_getno  (const desc_t *d, int nn, ord_t *no_); // return mo
+ord_t mad_desc_getno  (const desc_t *d, int nn, ord_t no_[/*nn*/]); // return mo
 ord_t mad_desc_maxord (const desc_t *d); // return mo
 ssz_t mad_desc_maxlen (const desc_t *d); // ordlen(mo) == maxlen
 ssz_t mad_desc_ordlen (const desc_t *d, ord_t mo);

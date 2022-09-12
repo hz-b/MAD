@@ -27,7 +27,7 @@
 // --- implementation ---------------------------------------------------------o
 
 ssz_t
-mad_mono_str (ssz_t n, ord_t a[n], str_t s)
+mad_mono_str (ssz_t n, ord_t *a, str_t s)
 {
   assert(a && s);
   ssz_t i = 0;
@@ -37,7 +37,7 @@ mad_mono_str (ssz_t n, ord_t a[n], str_t s)
 }
 
 str_t
-mad_mono_prt (ssz_t n, const ord_t a[n], char s[n+1])
+mad_mono_prt (ssz_t n, const ord_t *a, char s[n+1])
 {
   assert(a && s);
   for (ssz_t i=0; i < n; ++i)
@@ -47,21 +47,21 @@ mad_mono_prt (ssz_t n, const ord_t a[n], char s[n+1])
 }
 
 void
-mad_mono_fill (ssz_t n, ord_t a[n], ord_t v)
+mad_mono_fill (ssz_t n, ord_t *a, ord_t v)
 {
   assert(a);
   for (idx_t i=0; i < n; ++i) a[i] = v;
 }
 
 void
-mad_mono_copy (ssz_t n, const ord_t a[n], ord_t r[n])
+mad_mono_copy (ssz_t n, const ord_t *a, ord_t *r)
 {
   assert(a && r);
   for (idx_t i=0; i < n; ++i) r[i] = a[i];
 }
 
 void
-mad_mono_rcopy (ssz_t n, const ord_t a[n], ord_t r[n])
+mad_mono_rcopy (ssz_t n, const ord_t *a, ord_t *r)
 {
   assert(a && r);
   ord_t t;
@@ -73,7 +73,7 @@ mad_mono_rcopy (ssz_t n, const ord_t a[n], ord_t r[n])
 }
 
 ord_t
-mad_mono_min (ssz_t n, const ord_t a[n])
+mad_mono_min (ssz_t n, const ord_t *a)
 {
   assert(a);
   ord_t mo = ~0;
@@ -82,7 +82,7 @@ mad_mono_min (ssz_t n, const ord_t a[n])
 }
 
 ord_t
-mad_mono_max (ssz_t n, const ord_t a[n])
+mad_mono_max (ssz_t n, const ord_t *a)
 {
   assert(a);
   ord_t mo = 0;
@@ -91,7 +91,7 @@ mad_mono_max (ssz_t n, const ord_t a[n])
 }
 
 int
-mad_mono_ord (ssz_t n, const ord_t a[n])
+mad_mono_ord (ssz_t n, const ord_t *a)
 {
   assert(a);
   int s = 0;
@@ -100,7 +100,7 @@ mad_mono_ord (ssz_t n, const ord_t a[n])
 }
 
 num_t
-mad_mono_ordp (ssz_t n, const ord_t a[n], idx_t stp)
+mad_mono_ordp (ssz_t n, const ord_t *a, idx_t stp)
 {
   assert(a);
   ensure(stp == 1 || stp == 2, "invalid step %d (1 or 2 expected)", stp);
@@ -110,7 +110,7 @@ mad_mono_ordp (ssz_t n, const ord_t a[n], idx_t stp)
 }
 
 num_t
-mad_mono_ordpf (ssz_t n, const ord_t a[n], idx_t stp)
+mad_mono_ordpf (ssz_t n, const ord_t *a, idx_t stp)
 {
   assert(a);
   ensure(stp == 1 || stp == 2, "invalid step %d (1 or 2 expected)", stp);
@@ -121,7 +121,7 @@ mad_mono_ordpf (ssz_t n, const ord_t a[n], idx_t stp)
 
 
 log_t
-mad_mono_eq (ssz_t n, const ord_t a[n], const ord_t b[n])
+mad_mono_eq (ssz_t n, const ord_t *a, const ord_t *b)
 {
   assert(a && b);
   for (idx_t i=0; i < n; ++i) if (a[i] != b[i]) return FALSE;
@@ -129,7 +129,7 @@ mad_mono_eq (ssz_t n, const ord_t a[n], const ord_t b[n])
 }
 
 log_t
-mad_mono_lt (ssz_t n, const ord_t a[n], const ord_t b[n])
+mad_mono_lt (ssz_t n, const ord_t *a, const ord_t *b)
 {
   assert(a && b);
   for (idx_t i=0; i < n; ++i) if (a[i] >= b[i]) return FALSE;
@@ -137,7 +137,7 @@ mad_mono_lt (ssz_t n, const ord_t a[n], const ord_t b[n])
 }
 
 log_t
-mad_mono_le (ssz_t n, const ord_t a[n], const ord_t b[n])
+mad_mono_le (ssz_t n, const ord_t *a, const ord_t *b)
 {
   assert(a && b);
   for (idx_t i=0; i < n; ++i) if (a[i] > b[i]) return FALSE;
@@ -145,7 +145,7 @@ mad_mono_le (ssz_t n, const ord_t a[n], const ord_t b[n])
 }
 
 log_t
-mad_mono_gt (ssz_t n, const ord_t a[n], const ord_t b[n])
+mad_mono_gt (ssz_t n, const ord_t *a, const ord_t *b)
 {
   assert(a && b);
   for (idx_t i=0; i < n; ++i) if (a[i] <= b[i]) return FALSE;
@@ -153,7 +153,7 @@ mad_mono_gt (ssz_t n, const ord_t a[n], const ord_t b[n])
 }
 
 log_t
-mad_mono_ge (ssz_t n, const ord_t a[n], const ord_t b[n])
+mad_mono_ge (ssz_t n, const ord_t *a, const ord_t *b)
 {
   assert(a && b);
   for (idx_t i=0; i < n; ++i) if (a[i] < b[i]) return FALSE;
@@ -161,7 +161,7 @@ mad_mono_ge (ssz_t n, const ord_t a[n], const ord_t b[n])
 }
 
 int
-mad_mono_cmp (ssz_t n, const ord_t a[n], const ord_t b[n])
+mad_mono_cmp (ssz_t n, const ord_t *a, const ord_t *b)
 {
   assert(a && b);
   for (idx_t i=0; i < n; ++i) if (a[i] != b[i]) return (int)a[i] - b[i];
@@ -169,7 +169,7 @@ mad_mono_cmp (ssz_t n, const ord_t a[n], const ord_t b[n])
 }
 
 int
-mad_mono_rcmp (ssz_t n, const ord_t a[n], const ord_t b[n])
+mad_mono_rcmp (ssz_t n, const ord_t *a, const ord_t *b)
 {
   assert(a && b);
   for (idx_t i=n-1; i >= 0; --i) if (a[i] != b[i]) return (int)a[i] - b[i];
@@ -177,21 +177,21 @@ mad_mono_rcmp (ssz_t n, const ord_t a[n], const ord_t b[n])
 }
 
 void
-mad_mono_add (ssz_t n, const ord_t a[n], const ord_t b[n], ord_t r[n])
+mad_mono_add (ssz_t n, const ord_t *a, const ord_t *b, ord_t *r)
 {
   assert(a && b && r);
   for (idx_t i=0; i < n; ++i) r[i] = a[i] + b[i];
 }
 
 void
-mad_mono_sub (ssz_t n, const ord_t a[n], const ord_t b[n], ord_t r[n])
+mad_mono_sub (ssz_t n, const ord_t *a, const ord_t *b, ord_t *r)
 {
   assert(a && b && r);
   for (idx_t i=0; i < n; ++i) r[i] = a[i] > b[i] ? a[i] - b[i] : 0;
 }
 
 void
-mad_mono_cat (ssz_t n, const ord_t a[n],
+mad_mono_cat (ssz_t n, const ord_t *a,
               ssz_t m, const ord_t b[m], ord_t r[n+m])
 {
   mad_mono_copy(n, a, r  );
@@ -212,7 +212,7 @@ cmp (const void *a, const void *b)
 }
 
 void
-mad_mono_sort (ssz_t n, const ord_t a[n], idx_t idxs[n])
+mad_mono_sort (ssz_t n, const ord_t *a, idx_t idxs[n])
 {
   assert(a && idxs);
   ords = a;
@@ -223,7 +223,7 @@ mad_mono_sort (ssz_t n, const ord_t a[n], idx_t idxs[n])
 // -- printing
 
 void
-mad_mono_print (ssz_t n, const ord_t a[n], FILE *fp_)
+mad_mono_print (ssz_t n, const ord_t *a, FILE *fp_)
 {
   assert(a);
   if (!fp_) fp_ = stdout;

@@ -1983,6 +1983,7 @@ void mad_mat_torotq (const num_t x[NN], num_t q[4], log_t inv)
 
 // -- Orbit Correction --------------------------------------------------------o
 
+#ifndef GTPSA_AS_LIB
 int mad_use_madx_micado = 0;
 int mad_use_madx_svdcnd = 0;
 
@@ -2000,6 +2001,7 @@ svddec_(num_t svdmat[], num_t umat[], num_t vmat[],
         num_t ws[], num_t wvec[], int sortw[], num_t *sngcut, num_t *sngval,
         /* sizes and output */
         int *im, int *ic, int *iflag, int sing[]);
+#endif /* GTPSA_AS_LIB */
 
 static void
 vec_sort (num_t v[], idx_t c[], ssz_t n)
@@ -2040,6 +2042,7 @@ ivec_sort (idx_t v[], ssz_t n, log_t rmdup)
   return n;
 }
 
+#ifndef GTPSA_AS_LIB
 static int // madx legacy code wrapper
 madx_svdcnd (const num_t a[], idx_t c[], ssz_t m, ssz_t n, num_t scut, num_t s_[], num_t sval)
 {
@@ -2532,6 +2535,7 @@ mad_mat_nsolve(const num_t a[], const num_t b[], num_t x[], ssz_t m, ssz_t n,
 
   return N;
 }
+#endif /* GTPSA_AS_LIB */
 
 // -- Survey Misalignments ----------------------------------------------------o
 

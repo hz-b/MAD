@@ -1190,17 +1190,30 @@ mad_desc_gtrunc (const D *d, ord_t to)
   DBGFUN(<-); return d_->to = to, old;
 }
 
+static const char info_fmt[] = "id=%d, nn=%d, nv=%d, np=%d, mo=%d, po=%d, to=%d, uno=%d, no=[%s]\n";
 void
 mad_desc_info (const D *d, FILE *fp_)
 {
   assert(d); DBGFUN(->);
 
   char s[d->nn+1];
-  fprintf(fp_ ? fp_ : stdout,
-          "id=%d, nn=%d, nv=%d, np=%d, mo=%d, po=%d, to=%d, uno=%d, no=[%s]\n",
+  fprintf(fp_ ? fp_ : stdout, info_fmt,
            d->id, d->nn, d->nv, d->np, d->mo, d->po, d->to, d->uno,
            mad_mono_prt(d->nn, d->no, s));
 
+  DBGFUN(<-);
+}
+
+void
+mad_desc_info_s (const D *d, ssz_t n, char buf [/*n*/])
+{
+  assert(d); DBGFUN(->);
+
+  char s[d->nn+1];
+  snprintf(buf, n, info_fmt,
+           d->id, d->nn, d->nv, d->np, d->mo, d->po, d->to, d->uno,
+           mad_mono_prt(d->nn, d->no, s));
+  buf[n] = '\0';
   DBGFUN(<-);
 }
 

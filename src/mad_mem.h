@@ -72,6 +72,7 @@ void   mad_mdump    (FILE*);
 #if __GNUC__ <= 10
 #define malloc4attr malloc
 #else /* __GNUC__ */
+#define
 #define malloc4attr malloc(mad_free, 1)
 #endif /* __GNUC__ */
 

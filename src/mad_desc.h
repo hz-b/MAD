@@ -69,6 +69,7 @@ ssz_t mad_desc_maxlen (const desc_t *d); // ordlen(mo) == maxlen
 ssz_t mad_desc_ordlen (const desc_t *d, ord_t mo);
 ord_t mad_desc_gtrunc (const desc_t *d, ord_t to);
 void  mad_desc_info   (const desc_t *d, FILE *fp_);
+void  mad_desc_info_s (const desc_t *d, ssz_t n, char buf [/*n*/]);
 
 // -- indexes / monomials
 log_t mad_desc_isvalids  (const desc_t *d, ssz_t n,       str_t s    );

@@ -38,6 +38,7 @@ LUALIB_API void (mad_error) (str_t fn, str_t fmt, ...)
   vfprintf(stderr, fmt, va);
   va_end(va);
   fputc('\n', stderr);
+  abort();
   exit(EXIT_FAILURE); /* never reached */
 }
 

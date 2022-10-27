@@ -67,8 +67,8 @@ void     mad_ctpsa_copy    (const ctpsa_t *t, ctpsa_t *r);
 void     mad_ctpsa_sclord  (const ctpsa_t *t, ctpsa_t *r, log_t inv); // t[i]*o[i]
 void     mad_ctpsa_getord  (const ctpsa_t *t, ctpsa_t *r, ord_t ord);
 void     mad_ctpsa_cutord  (const ctpsa_t *t, ctpsa_t *r, int   ord); // ord..mo = 0 or 0..-ord=0
-void     mad_ctpsa_convert (const ctpsa_t *t, ctpsa_t *r, ssz_t n, idx_t t2r_[n], int pb);
-void     mad_ctpsa_setvar  (      ctpsa_t *t, cpx_t v, idx_t iv_, cpx_t scl_);
+void     mad_ctpsa_convert (const ctpsa_t *t, ctpsa_t *r, ssz_t n, idx_t t2r_[/*n*/], int pb);
+void     mad_ctpsa_setvar  (      ctpsa_t *t, cnum_t v, idx_t iv_, cnum_t scl_);
 void     mad_ctpsa_setvar_r(      ctpsa_t *t, num_t v_re, num_t v_im, idx_t iv_, num_t scl_re_, num_t scl_im_);
 void     mad_ctpsa_setnam  (      ctpsa_t *t, str_t nam);
 void     mad_ctpsa_clear   (      ctpsa_t *t);
@@ -260,8 +260,13 @@ num_t    mad_ctpsa_mnrm     (ssz_t na, const ctpsa_t *ma[/*na*/]);
 void     mad_ctpsa_minv     (ssz_t na, const ctpsa_t *ma[/*na*/],                                  ctpsa_t *mc[/*na*/]);
 void     mad_ctpsa_pminv    (ssz_t na, const ctpsa_t *ma[/*na*/],                                  ctpsa_t *mc[/*na*/], idx_t select[/*na*/]);
 void     mad_ctpsa_compose  (ssz_t na, const ctpsa_t *ma[/*na*/], ssz_t nb, const ctpsa_t *mb[/*nb*/], ctpsa_t *mc[/*na*/]);
+<<<<<<< HEAD
 void     mad_ctpsa_translate(ssz_t na, const ctpsa_t *ma[/*na*/], ssz_t nb, const cpx_t   tb[/*nb*/], ctpsa_t *mc[/*na*/]);
 void     mad_ctpsa_eval     (ssz_t na, const ctpsa_t *ma[/*na*/], ssz_t nb, const cpx_t   tb[/*nb*/], cpx_t   tc[/*na*/]);
+=======
+void     mad_ctpsa_translate(ssz_t na, const ctpsa_t *ma[/*na*/], ssz_t nb, const cnum_t   tb[/*nb*/], ctpsa_t *mc[/*na*/]);
+void     mad_ctpsa_eval     (ssz_t na, const ctpsa_t *ma[/*na*/], ssz_t nb, const cnum_t   tb[/*nb*/], cnum_t   tc[/*na*/]);
+>>>>>>> 3f241189 (ctpsa: commenting out xla in mad_ctpsa.h interface)
 void     mad_ctpsa_mconv    (ssz_t na, const ctpsa_t *ma[/*na*/], ssz_t nc,                        ctpsa_t *mc[/*nc*/], ssz_t n, idx_t t2r_[/*n*/], int pb);
 
 // I/O

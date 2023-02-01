@@ -263,8 +263,6 @@ void     mad_ctpsa_pminv    (ssz_t na, const ctpsa_t *ma[/*na*/],               
 void     mad_ctpsa_compose  (ssz_t na, const ctpsa_t *ma[/*na*/], ssz_t nb, const ctpsa_t *mb[/*nb*/], ctpsa_t *mc[/*na*/]);
 void     mad_ctpsa_translate(ssz_t na, const ctpsa_t *ma[/*na*/], ssz_t nb, const cpx_t   tb[/*nb*/], ctpsa_t *mc[/*na*/]);
 void     mad_ctpsa_eval     (ssz_t na, const ctpsa_t *ma[/*na*/], ssz_t nb, const cpx_t   tb[/*nb*/], cpx_t   tc[/*na*/]);
-void     mad_ctpsa_translate(ssz_t na, const ctpsa_t *ma[/*na*/], ssz_t nb, const cnum_t   tb[/*nb*/], ctpsa_t *mc[/*na*/]);
-void     mad_ctpsa_eval     (ssz_t na, const ctpsa_t *ma[/*na*/], ssz_t nb, const cnum_t   tb[/*nb*/], cnum_t   tc[/*na*/]);
 void     mad_ctpsa_mconv    (ssz_t na, const ctpsa_t *ma[/*na*/], ssz_t nc,                        ctpsa_t *mc[/*nc*/], ssz_t n, idx_t t2r_[/*n*/], int pb);
 
 // I/O

@@ -75,8 +75,8 @@ void   mad_mdump    (FILE*);
 #define malloc4attr malloc(mad_free, 1)
 #endif /* __GNUC__ */
 
-void* (mad_malloc) (size_t)        __attribute__((hot,malloc4attr,returns_nonnull));
-void* (mad_calloc) (size_t,size_t) __attribute__((hot,malloc4attr,returns_nonnull));
+void* (mad_malloc) (size_t)        __attribute__((hot,malloc4attr,malloc,returns_nonnull));
+void* (mad_calloc) (size_t,size_t) __attribute__((hot,malloc4attr,malloc,returns_nonnull));
 void* (mad_realloc)(void* ,size_t) __attribute__((hot,malloc4attr));
 void  (mad_free  ) (void* )        __attribute__((hot));
 

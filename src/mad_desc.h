@@ -72,12 +72,12 @@ void  mad_desc_info   (const desc_t *d, FILE *fp_);
 void  mad_desc_info_s (const desc_t *d, ssz_t n, char buf [/*n*/]);
 
 // -- indexes / monomials
-log_t mad_desc_isvalids  (const desc_t *d, ssz_t n,       str_t s    );
-log_t mad_desc_isvalidm  (const desc_t *d, ssz_t n, const ord_t m [/*n*/]);
-log_t mad_desc_isvalidsm (const desc_t *d, ssz_t n, const idx_t m [/*n*/]);
-idx_t mad_desc_idxs      (const desc_t *d, ssz_t n,       str_t s    );
-idx_t mad_desc_idxm      (const desc_t *d, ssz_t n, const ord_t m [/*n*/]);
-idx_t mad_desc_idxsm     (const desc_t *d, ssz_t n, const idx_t m [/*n*/]);
+log_t mad_desc_isvalids  (const desc_t *d, ssz_t n,       str_t s    );        // string
+log_t mad_desc_isvalidm  (const desc_t *d, ssz_t n, const ord_t m [/*n*/]);    // mono
+log_t mad_desc_isvalidsm (const desc_t *d, ssz_t n, const idx_t m [/*n*/]);    // sparse mono
+idx_t mad_desc_idxs      (const desc_t *d, ssz_t n,       str_t s    );	       // string
+idx_t mad_desc_idxm      (const desc_t *d, ssz_t n, const ord_t m [/*n*/]);    // mono
+idx_t mad_desc_idxsm     (const desc_t *d, ssz_t n, const idx_t m [/*n*/]);    // sparse mono
 idx_t mad_desc_nxtbyvar  (const desc_t *d, ssz_t n,       ord_t m [/*n*/]);
 idx_t mad_desc_nxtbyord  (const desc_t *d, ssz_t n,       ord_t m [/*n*/]);
 ord_t mad_desc_mono      (const desc_t *d, ssz_t n,       ord_t m_[/*n*/], idx_t i);
